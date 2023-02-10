@@ -1,0 +1,64 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Create Document</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">index</li>
+        <li class="breadcrumb-item active">Create</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section dashboard">
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <form class="row my-4" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="col-12 mb-2">
+              <label for="inputNanme4" class="form-label">Project</label>
+              <textarea
+              formControlName="project"
+                class="form-control"
+                placeholder="Project Name"
+                id="floatingTextarea"
+                style="height: 75px;border-radius: 10px;"
+                
+              ></textarea>
+            </div>
+            <div class="col-4 mb-2">
+              <label for="inputEmail4" class="form-label">Line</label>
+              <input type="text" class="form-control" id="inputEmail4" placeholder="Line"  style="border-radius: 10px;" formControlName="line"/>
+            </div>
+            <div class="col-4 mb-2">
+              <label for="inputPassword4" class="form-label">PIC</label>
+              <input type="text" class="form-control" id="inputPassword4" placeholder="PIC" style="border-radius: 10px;" formControlName="pic" />
+            </div>
+            <div class="col-4 mb-2">
+              <label for="inputPassword4" class="form-label">Category</label>
+              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="categoryId">
+                <option value="{{ item.id }}" *ngFor="let item of data">{{ item.code }} ({{ item.name }})</option>
+              </select>
+            </div>
+            <div class="col-6 mb-2">
+              <label for="inputPassword4" class="form-label">Section</label>
+              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="sectionId">
+                <option value="{{ item.id }}" *ngFor="let item of section">{{ item.name }} ({{ item.description }})</option>
+              </select>
+            </div>
+            <div class="col-6 mb-2">
+              <label for="inputPassword4" class="form-label">Status</label>
+              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="status">
+                <option value="Done">Done</option>
+                <option value="On Progress">On Progress</option>
+              </select>
+            </div>
+
+            <div class="text-center my-3">
+              <button type="submit" class="btn btn-primary mx-2">Submit</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

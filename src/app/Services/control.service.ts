@@ -19,14 +19,52 @@ export class ControlService {
   //?/ Http Methods ///
   ////////////////////
 
+  // Categories
+  getAllCategories() {
+    return this.HttpClient.get(this.port3000 + 'categories')
+      .pipe(catchError(this.errorHttpHandler))
+  }
 
+  getCategories(params: any) {
+    return this.HttpClient.get(this.port3000 + `categories/${params}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
+  getCategoriesById(params: any) {
+    return this.HttpClient.get(this.port3000 + `categories/find/${params}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
+  // Sections
+  getSection() {
+    return this.HttpClient.get(this.port3000 + 'sections')
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
+  // Documents
+  getListDocuments(params: any) {
+    return this.HttpClient.get(this.port3000 + `documents/${params}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  createDocument(params: any) {
+    return this.HttpClient.post(this.port3000 + `documents`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  findDocument(params: any): Observable<any>{
+    return this.HttpClient.get(this.port3000 + `documents/find/${params}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  updateDocument(id: any, params: any): Observable<any> {
+    return this.HttpClient.put(this.port3000 + `documents/${id}`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
 
   //////////////////////
   //!/ Http Methods ///
   ////////////////////
 
 
-  
+
   // Error handling
   errorHttpHandler(error: any) {
     let errorMessage = '';

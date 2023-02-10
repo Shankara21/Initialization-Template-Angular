@@ -11,6 +11,9 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DocumentsComponent } from './views/documents/documents.component';
+import { CreateComponent } from './views/create/create.component';
+import { EditComponent } from './views/edit/edit.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    DocumentsComponent,
+    CreateComponent,
+    EditComponent
 
   ],
   imports: [
