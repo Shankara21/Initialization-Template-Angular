@@ -12,7 +12,7 @@ export class DocumentsComponent implements OnInit {
   constructor(private router: Router, private ControlService: ControlService) { }
   name: string = this.router.url.substring(1);
   title: any;
-  temp:any[] = [];
+  temp: any[] = [];
   data: any[] = [];
   ngOnInit(): void {
     // Categories
@@ -24,6 +24,11 @@ export class DocumentsComponent implements OnInit {
 
     this.ControlService.getListDocuments(this.name).subscribe((res: any) => {
       this.data = res;
+    });
+  }
+  delete(id: any) {
+    this.ControlService.deleteDocument(id).subscribe((res: any) => {
+      this.router.navigate([this.name]);
     });
   }
 }

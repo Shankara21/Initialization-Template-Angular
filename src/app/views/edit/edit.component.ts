@@ -20,6 +20,13 @@ export class EditComponent implements OnInit {
 
   // document
   document: any;
+  project: any;
+  sectionId: any;
+  categoryId: any;
+  line: any;
+  pic: any;
+  status: any;
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.ControlService.getAllCategories().subscribe((res: any) => {
@@ -29,15 +36,21 @@ export class EditComponent implements OnInit {
       this.section = res;
     });
     this.ControlService.findDocument(this.id).subscribe((res: any) => {
-      this.form = new FormGroup({
-        project: new FormControl(res.project, [Validators.required]),
-        sectionId: new FormControl(res.sectionId, [Validators.required]),
-        categoryId: new FormControl(res.categoryId, [Validators.required]),
-        line: new FormControl(res.line, [Validators.required]),
-        pic: new FormControl(res.pic, [Validators.required]),
-        status: new FormControl(res.status, [Validators.required]),
-      })
+      this.project = res.project;
+      this.sectionId = res.sectionId;
+      this.categoryId = res.categoryId;
+      this.line = res.line;
+      this.pic = res.pic;
+      this.status = res.status;
     });
+    this.form = new FormGroup({
+      project: new FormControl('', [Validators.required]),
+      sectionId: new FormControl('', [Validators.required]),
+      categoryId: new FormControl('', [Validators.required]),
+      line: new FormControl('', [Validators.required]),
+      pic: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required]),
+    })
   }
   params: any;
   submit() {
@@ -52,8 +65,11 @@ export class EditComponent implements OnInit {
     // this.ControlService.createDocument(this.form.value).subscribe((res: any) => {
     //   this.router.navigate([`/${this.params}`]);
     // })
-    // this.ControlService.updateDocument(this.id,this.form.value).subscribe((res: any) => {
-    //   this.router.navigate([`/${this.params}`]);
-    // })
+    this.form.value.categoryId = Number(this.form.value.categoryId);
+    this.form.value.sectionId = Number(this.form.value.sectionId);
+
+    this.ControlService.updateDocument(this.id, this.form.value).subscribe((res: any) => {
+      this.router.navigate([`/${this.params}`]);
+    })
   }
 }

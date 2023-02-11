@@ -21,7 +21,8 @@
                 placeholder="Project Name"
                 id="floatingTextarea"
                 style="height: 75px; border-radius: 10px"
-              >{{ form.value.project }}</textarea>
+                [(ngModel)]="project"
+              ></textarea>
             </div>
             <div class="col-4 mb-2">
               <label for="inputEmail4" class="form-label">Line</label>
@@ -32,6 +33,7 @@
                 placeholder="Line"
                 style="border-radius: 10px"
                 formControlName="line"
+                [(ngModel)]="line"
               />
             </div>
             <div class="col-4 mb-2">
@@ -43,6 +45,7 @@
                 placeholder="PIC"
                 style="border-radius: 10px"
                 formControlName="pic"
+                [(ngModel)]="pic"
               />
             </div>
             <div class="col-4 mb-2">
@@ -52,6 +55,7 @@
                 class="form-select"
                 style="border-radius: 10px"
                 formControlName="categoryId"
+                [(ngModel)]="categoryId"
               >
                 <option value="{{ item.id }}" *ngFor="let item of data">
                   {{ item.code }} ({{ item.name }})
@@ -65,6 +69,7 @@
                 class="form-select"
                 style="border-radius: 10px"
                 formControlName="sectionId"
+                [(ngModel)]="sectionId"
               >
                 <option value="{{ item.id }}" *ngFor="let item of section">
                   {{ item.name }} ({{ item.description }})
@@ -78,6 +83,7 @@
                 class="form-select"
                 style="border-radius: 10px"
                 formControlName="status"
+                [(ngModel)]="status"
               >
                 <option value="Done">Done</option>
                 <option value="On Progress">On Progress</option>

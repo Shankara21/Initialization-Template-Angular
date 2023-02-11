@@ -50,12 +50,16 @@ export class ControlService {
     return this.HttpClient.post(this.port3000 + `documents`, params)
       .pipe(catchError(this.errorHttpHandler))
   }
-  findDocument(params: any): Observable<any>{
+  findDocument(params: any): Observable<any> {
     return this.HttpClient.get(this.port3000 + `documents/find/${params}`)
       .pipe(catchError(this.errorHttpHandler))
   }
   updateDocument(id: any, params: any): Observable<any> {
     return this.HttpClient.put(this.port3000 + `documents/${id}`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  deleteDocument(id: any): Observable<any> {
+    return this.HttpClient.delete(this.port3000 + `documents/${id}`)
       .pipe(catchError(this.errorHttpHandler))
   }
 
