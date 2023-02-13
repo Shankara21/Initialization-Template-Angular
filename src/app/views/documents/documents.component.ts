@@ -18,7 +18,7 @@ export class DocumentsComponent implements OnInit {
 
   // pagination
   p: number = 1;
-  itemsPerPage: number= 15;
+  itemsPerPage: number = 15;
   totalProduct: any;
   ngOnInit(): void {
     // Categories
@@ -35,6 +35,7 @@ export class DocumentsComponent implements OnInit {
   delete(id: any) {
     this.ControlService.deleteDocument(id).subscribe((res: any) => {
       this.router.navigate([this.name]);
+      window.location.reload();
     });
   }
 }

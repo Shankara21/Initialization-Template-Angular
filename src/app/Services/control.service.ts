@@ -35,9 +35,39 @@ export class ControlService {
       .pipe(catchError(this.errorHttpHandler))
   }
 
+  createCategories(params: any) {
+    return this.HttpClient.post(this.port3000 + `categories`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
+  updateCategories(id: any, params: any) {
+    return this.HttpClient.put(this.port3000 + `categories/${id}`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  deleteCategories(id: any) {
+    return this.HttpClient.delete(this.port3000 + `categories/${id}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
   // Sections
   getSection() {
     return this.HttpClient.get(this.port3000 + 'sections')
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  createSection(params: any) {
+    return this.HttpClient.post(this.port3000 + `sections`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  getSectionById(params: any) { 
+    return this.HttpClient.get(this.port3000 + `sections/${params}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  updateSection(id: any, params: any) {
+    return this.HttpClient.put(this.port3000 + `sections/${id}`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  deleteSection(id: any) { 
+    return this.HttpClient.delete(this.port3000 + `sections/${id}`)
       .pipe(catchError(this.errorHttpHandler))
   }
 

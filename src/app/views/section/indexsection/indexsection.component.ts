@@ -1,30 +1,29 @@
 import { ControlService } from './../../../Services/control.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-@Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
-})
-export class IndexComponent implements OnInit {
 
+@Component({
+  selector: 'app-indexsection',
+  templateUrl: './indexsection.component.html',
+  styleUrls: ['./indexsection.component.css']
+})
+export class IndexsectionComponent implements OnInit {
   constructor(private router: Router, private ControlService: ControlService) { }
 
   itemsPerPage: number = 10;
   p: number = 1;
 
-  data:any[] = [];
+  data: any[] = [];
   term: any;
   ngOnInit(): void {
-    this.ControlService.getAllCategories().subscribe((res: any) => {
+    this.ControlService.getSection().subscribe((res: any) => {
       this.data = res;
     })
   }
   delete(id: any) {
-    this.ControlService.deleteCategories(id).subscribe((res: any) => {
-      this.router.navigate(['/categories']);
+    this.ControlService.deleteSection(id).subscribe((res: any) => {
+      this.router.navigate(['/sections']);
       window.location.reload();
     });
   }
-
 }

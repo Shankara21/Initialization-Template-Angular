@@ -19,6 +19,11 @@ import { CreateComponent } from './views/create/create.component';
 import { EditComponent } from './views/edit/edit.component';
 import { LoginComponent } from './pages/login/login.component';
 import { IndexComponent } from './views/category/index/index.component';
+import { IndexsectionComponent } from './views/section/indexsection/indexsection.component';
+import { EditComponent as sectionEdit } from './views/section/edit/edit.component';
+import { CreateComponent as sectionCreate } from './views/section/create/create.component';
+import { EditComponent as categoryEdit } from './views/category/edit/edit.component';
+import { CreateComponent as categoryCreate } from './views/category/create/create.component';
 
 
 @NgModule({
@@ -33,6 +38,11 @@ import { IndexComponent } from './views/category/index/index.component';
     EditComponent,
     LoginComponent,
     IndexComponent,
+    IndexsectionComponent,
+    sectionEdit,
+    sectionCreate,
+    categoryEdit,
+    categoryCreate
   ],
   imports: [
     BrowserModule,
