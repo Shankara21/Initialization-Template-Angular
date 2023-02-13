@@ -6,6 +6,131 @@
       </a>
     </li>
     <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#forms-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-journal-text"></i><span>Documents</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="forms-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/dq">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">DQ (Design Qualification)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/iq">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">IQ (Instalation Qualification)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/pq">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">PQ (Performance Qualification)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/pv">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">PV (Protocol Validation)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/oq">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">OQ (Operational Qualification)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/rv">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">RV (Report Validation)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/fat">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">FAT</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/fr">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">FR (Form Usulan Perubahan)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/ms">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">MS (Material Spesification)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/ps">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">PS (Packaging Spesification)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/qs">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">QS (Quality Statement)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/st">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">ST (Stability Test)</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="/sop">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px"
+              >SOP (Standard Operational Procedure)</span
+            >
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#components-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-menu-button-wide"></i><span>Manage</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="components-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a routerLink="/categories" [routerLinkActive]="'active'">
+            <i class="bi bi-circle"></i><span>Category</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/sections" [routerLinkActive]="'active'">
+            <i class="bi bi-circle"></i><span>Section</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- <li class="nav-item">
       <a class="nav-link" [routerLinkActive]="'active'" routerLink="/dq">
         <i class="bx bxs-paint"></i>
         <span style="font-size: 13px">DQ (Design Qualification) </span>
@@ -84,6 +209,6 @@
           >SOP (Standard Operational Procedure)</span
         >
       </a>
-    </li>
+    </li> -->
   </ul>
 </aside>

@@ -17,6 +17,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DocumentsComponent } from './views/documents/documents.component';
 import { CreateComponent } from './views/create/create.component';
 import { EditComponent } from './views/edit/edit.component';
+import { LoginComponent } from './pages/login/login.component';
+import { IndexComponent } from './views/category/index/index.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { EditComponent } from './views/edit/edit.component';
     DocumentsComponent,
     CreateComponent,
     EditComponent,
+    LoginComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
