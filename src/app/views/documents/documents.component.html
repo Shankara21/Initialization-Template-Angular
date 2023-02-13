@@ -34,7 +34,7 @@
                 <td colspan="7" class="text-center">Belum ada data.</td>
               </tr>
               <ng-template #tes>
-                <tr *ngFor="let item of data; index as i">
+                <tr *ngFor="let item of data| paginate:{itemsPerPage : itemsPerPage, currentPage : p};index as i ">
                   <th scope="row">{{ i + 1 }}</th>
                   <td>{{ item.project }}</td>
                   <td>{{ item.line }}</td>
@@ -85,6 +85,9 @@
               </ng-template>
             </tbody>
           </table>
+          <div *ngIf="data.length" class="d-flex justify-content-center mt-3">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
         </div>
       </div>
     </div>

@@ -14,16 +14,21 @@ export class DocumentsComponent implements OnInit {
   title: any;
   temp: any[] = [];
   data: any[] = [];
+
+  // pagination
+  p: number = 1;
+  itemsPerPage: number= 15;
+  totalProduct: any;
   ngOnInit(): void {
     // Categories
     this.ControlService.getCategories(this.name).subscribe((res: any) => {
       this.temp = res;
       this.title = this.temp[0].name;
-
     });
 
     this.ControlService.getListDocuments(this.name).subscribe((res: any) => {
       this.data = res;
+      this.totalProduct = this.data.length;
     });
   }
   delete(id: any) {
