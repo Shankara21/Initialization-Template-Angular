@@ -62,6 +62,9 @@ export class ControlService {
     return this.HttpClient.delete(this.port3000 + `documents/${id}`)
       .pipe(catchError(this.errorHttpHandler))
   }
+  getAmountDocument() {
+    return this.HttpClient.get(this.port3000 + `documents/count`).pipe(catchError(this.errorHttpHandler))
+  }
 
   //////////////////////
   //!/ Http Methods ///

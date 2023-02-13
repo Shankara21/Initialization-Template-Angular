@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class DocumentsComponent implements OnInit {
 
   constructor(private router: Router, private ControlService: ControlService) { }
+  term: any;
   name: string = this.router.url.substring(1);
   title: any;
   temp: any[] = [];

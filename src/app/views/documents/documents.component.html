@@ -15,7 +15,12 @@
         <div class="card-body">
           <div class="d-flex justify-content-between">
             <h5 class="card-title">{{ title }}</h5>
-            <a routerLink="/create" class="btn btn-primary my-3">Create Data</a>
+            <a routerLink="/create" class="btn btn-primary my-3" style="border-radius: 13px;">Create Data</a>
+          </div>
+          <div class="row my-2" *ngIf="data.length">
+            <div class="col-3">
+              <input type="text" class="form-control" [(ngModel)]="term" placeholder="Search" style="border-radius: 13px;">
+            </div>
           </div>
           <table class="table table-hover text-center">
             <thead>
@@ -30,11 +35,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngIf="data.length == 0; else tes">
+              <tr *ngIf="!data.length; else tes">
                 <td colspan="7" class="text-center">Belum ada data.</td>
               </tr>
               <ng-template #tes>
-                <tr *ngFor="let item of data| paginate:{itemsPerPage : itemsPerPage, currentPage : p};index as i ">
+                <tr
+                  *ngFor="
+                    let item of data
+                      | filter : term
+                      | paginate
+                        : { itemsPerPage: itemsPerPage, currentPage: p };
+                    index as i
+                  "
+                >
                   <th scope="row">{{ i + 1 }}</th>
                   <td>{{ item.project }}</td>
                   <td>{{ item.line }}</td>
@@ -69,11 +82,12 @@
                         </li>
                         <li>
                           <form action="">
-                            <button class="dropdown-item" type="submit" (click)="delete(item.id)">
-                              <i
-                                class="bi bi-trash"
-
-                              ></i>
+                            <button
+                              class="dropdown-item"
+                              type="submit"
+                              (click)="delete(item.id)"
+                            >
+                              <i class="bi bi-trash"></i>
                               Delete
                             </button>
                           </form>
@@ -86,7 +100,9 @@
             </tbody>
           </table>
           <div *ngIf="data.length" class="d-flex justify-content-center mt-3">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls
+              (pageChange)="p = $event"
+            ></pagination-controls>
           </div>
         </div>
       </div>
