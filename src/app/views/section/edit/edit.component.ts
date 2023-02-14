@@ -18,21 +18,17 @@ export class EditComponent implements OnInit {
   form!: FormGroup;
 
   name: any;
-  desc: any = '';
+  code: any = '';
   ngOnInit(): void {
 
 
     this.ControlService.getSectionById(this.id).subscribe((res: any) => {
       this.name = res.name;
-      this.desc = res.description;
-      console.log('Ini name', this.name);
-      console.log('Ini desc', this.desc);
-
-
+      this.code = res.code;
     })
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      code: new FormControl('', [Validators.required]),
     })
   }
   submit() {

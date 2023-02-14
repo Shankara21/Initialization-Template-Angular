@@ -36,6 +36,8 @@ export class EditComponent implements OnInit {
       this.section = res;
     });
     this.ControlService.findDocument(this.id).subscribe((res: any) => {
+      
+
       this.project = res.project;
       this.sectionId = res.sectionId;
       this.categoryId = res.categoryId;
