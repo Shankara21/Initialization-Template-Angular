@@ -58,7 +58,7 @@ export class ControlService {
     return this.HttpClient.post(this.port3000 + `sections`, params)
       .pipe(catchError(this.errorHttpHandler))
   }
-  getSectionById(params: any) { 
+  getSectionById(params: any) {
     return this.HttpClient.get(this.port3000 + `sections/${params}`)
       .pipe(catchError(this.errorHttpHandler))
   }
@@ -66,7 +66,7 @@ export class ControlService {
     return this.HttpClient.put(this.port3000 + `sections/${id}`, params)
       .pipe(catchError(this.errorHttpHandler))
   }
-  deleteSection(id: any) { 
+  deleteSection(id: any) {
     return this.HttpClient.delete(this.port3000 + `sections/${id}`)
       .pipe(catchError(this.errorHttpHandler))
   }
@@ -95,6 +95,32 @@ export class ControlService {
   getAmountDocument() {
     return this.HttpClient.get(this.port3000 + `documents/count`).pipe(catchError(this.errorHttpHandler))
   }
+  filterByYear(params: any) {
+    return this.HttpClient.post(this.port3000 + `documents/filterByYear`, params).pipe(catchError(this.errorHttpHandler));
+  }
+
+  // Line
+  getLine() {
+    return this.HttpClient.get(this.port3000 + 'lines/')
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  createLine(params: any) {
+    return this.HttpClient.post(this.port3000 + `lines`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  getLineById(params: any) {
+    return this.HttpClient.get(this.port3000 + `lines/${params}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  updateLine(id: any, params: any) {
+    return this.HttpClient.put(this.port3000 + `lines/${id}`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  deleteLine(id: any) {
+    return this.HttpClient.delete(this.port3000 + `lines/${id}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
 
   //////////////////////
   //!/ Http Methods ///

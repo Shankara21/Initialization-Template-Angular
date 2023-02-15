@@ -1,10 +1,10 @@
 <main id="main" class="main">
   <div class="pagetitle">
-    <h1>List Category</h1>
+    <h1>List Line</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
-          <a routerLink="/categories" class="active">index</a>
+          <a routerLink="/line" class="active">index</a>
         </li>
       </ol>
     </nav>
@@ -20,13 +20,12 @@
                 <input type="text" class="form-control" [(ngModel)]="term" placeholder="Search" style="border-radius: 13px;">
               </div>
             </div>
-            <a routerLink="/categories/create" class="btn btn-primary my-3" style="border-radius: 13px;">Create Data</a>
+            <a routerLink="/line/create" class="btn btn-primary my-3" style="border-radius: 13px;">Create Data</a>
           </div>
           <table class="table table-hover text-center">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Code</th>
                 <th scope="col">Name</th>
                 <th scope="col">Action</th>
               </tr>
@@ -46,7 +45,6 @@
                   "
                 >
                   <th scope="row">{{ i + 1 }}</th>
-                  <td>{{ item.code }}</td>
                   <td>{{ item.name }}</td>
                   <td>
                     <div class="dropdown">
@@ -59,7 +57,7 @@
                         <li>
                           <a
                             class="dropdown-item"
-                            routerLink="/categories/edit/{{ item.id }}"
+                            routerLink="/line/edit/{{ item.id }}"
                             ><i class="bi bi-pencil"></i> Edit</a
                           >
                         </li>

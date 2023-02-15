@@ -1,3 +1,6 @@
+import { EditLineComponent } from './views/line/edit-line/edit-line.component';
+import { CreateLineComponent } from './views/line/create-line/create-line.component';
+import { IndexLineComponent } from './views/line/index-line/index-line.component';
 import { EditComponent as sectionEdit} from './views/section/edit/edit.component';
 import { CreateComponent as sectionCreate } from './views/section/create/create.component';
 import { EditComponent as categoryEdit } from './views/category/edit/edit.component';
@@ -36,7 +39,10 @@ const routes: Routes = [
   { path: 'categories/create', component: categoryCreate },
   { path: 'categories/edit/:id', component: categoryEdit },
   { path: 'sections/create', component: sectionCreate },
-  { path: 'sections/edit/:id', component: sectionEdit }
+  { path: 'sections/edit/:id', component: sectionEdit },
+  { path: 'line', component: IndexLineComponent },
+  { path: 'line/create', component: CreateLineComponent },
+  {path:'line/edit/:id',component:EditLineComponent}
 ];
 
 @NgModule({

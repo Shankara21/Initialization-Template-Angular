@@ -23,9 +23,15 @@ export class EditComponent implements OnInit {
   project: any;
   sectionId: any;
   categoryId: any;
-  line: any;
+  lineId: any;
   pic: any;
   status: any;
+
+  // Line
+  lineData: any[] = [];
+
+  // filterByYear
+
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -35,13 +41,15 @@ export class EditComponent implements OnInit {
     this.ControlService.getSection().subscribe((res: any) => {
       this.section = res;
     });
+    this.ControlService.getLine().subscribe((res: any) => {
+      this.lineData = res;
+    })
     this.ControlService.findDocument(this.id).subscribe((res: any) => {
-      
 
       this.project = res.project;
       this.sectionId = res.sectionId;
       this.categoryId = res.categoryId;
-      this.line = res.line;
+      this.lineId = res.Line.id;
       this.pic = res.pic;
       this.status = res.status;
     });
@@ -62,16 +70,17 @@ export class EditComponent implements OnInit {
       this.params = this.params.toLowerCase();
     })
     // this.form.value.categoryId = Number(this.form.value.categoryId);
-    console.log(this.form.value);
 
     // this.ControlService.createDocument(this.form.value).subscribe((res: any) => {
     //   this.router.navigate([`/${this.params}`]);
     // })
     this.form.value.categoryId = Number(this.form.value.categoryId);
     this.form.value.sectionId = Number(this.form.value.sectionId);
+    this.form.value.lineId = Number(this.form.value.line);
 
     this.ControlService.updateDocument(this.id, this.form.value).subscribe((res: any) => {
       this.router.navigate([`/${this.params}`]);
     })
   }
+
 }

@@ -34,7 +34,7 @@
             </div>
             <div class="col-4 mb-2">
               <label for="inputPassword4" class="form-label">Category</label>
-              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="categoryId">
+              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="categoryId" multiple>
                 <option value="{{ item.id }}" *ngFor="let item of data">{{ item.code }} ({{ item.name }})</option>
               </select>
             </div>

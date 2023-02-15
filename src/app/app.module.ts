@@ -24,6 +24,9 @@ import { EditComponent as sectionEdit } from './views/section/edit/edit.componen
 import { CreateComponent as sectionCreate } from './views/section/create/create.component';
 import { EditComponent as categoryEdit } from './views/category/edit/edit.component';
 import { CreateComponent as categoryCreate } from './views/category/create/create.component';
+import { IndexLineComponent } from './views/line/index-line/index-line.component';
+import { CreateLineComponent } from './views/line/create-line/create-line.component';
+import { EditLineComponent } from './views/line/edit-line/edit-line.component';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { CreateComponent as categoryCreate } from './views/category/create/creat
     sectionEdit,
     sectionCreate,
     categoryEdit,
-    categoryCreate
+    categoryCreate,
+    IndexLineComponent,
+    CreateLineComponent,
+    EditLineComponent
   ],
   imports: [
     BrowserModule,

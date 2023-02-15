@@ -15,12 +15,52 @@
         <div class="card-body">
           <div class="d-flex justify-content-between">
             <h5 class="card-title">{{ title }}</h5>
-            <a routerLink="/create" class="btn btn-primary my-3" style="border-radius: 13px;">Create Data</a>
-          </div>
-          <div class="row my-2" *ngIf="data.length">
-            <div class="col-3">
-              <input type="text" class="form-control" [(ngModel)]="term" placeholder="Search" style="border-radius: 13px;">
+            <div>
+              <a
+                routerLink="/create"
+                class="btn btn-primary my-3 m-2"
+                style="border-radius: 13px"
+                >Create Data</a
+              >
+              <a
+                (click)="reload()"
+                class="btn btn-secondary my-3"
+                style="border-radius: 13px"
+              ><i class="fa-sharp fa-solid fa-rotate-right"></i></a>
             </div>
+          </div>
+         <div class="d-flex justify-content-between">
+            <form [formGroup]="filterYear">
+              <label for="filterYear" class="form-label">By Year</label>
+                <select
+                  formControlName="year"
+                  id="filterYear"
+                  (change)="filter()"
+                  class="form-select"
+                  style="border-radius: 13px;width: 100px;"
+                >
+                  <option value="{{ item }}" *ngFor="let item of years">
+                    {{ item }}
+                  </option>
+                </select>
+
+            </form>
+          <div *ngIf="data.length">
+             <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="term"
+            placeholder="Search"
+            style="border-radius: 13px;width: 200px;"
+          />
+          </div>
+
+         </div>
+          <div class="row my-2" >
+            <div class="col-3">
+            </div>
+          </div>
+          <div class="row my-2">
           </div>
           <table class="table table-hover text-center">
             <thead>
@@ -50,7 +90,7 @@
                 >
                   <th scope="row">{{ i + 1 }}</th>
                   <td>{{ item.project }}</td>
-                  <td>{{ item.line }}</td>
+                  <td>{{ item.Line.name }}</td>
                   <td>
                     <strong>{{ item.format_code }}</strong>
                   </td>

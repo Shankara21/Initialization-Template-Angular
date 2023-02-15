@@ -26,15 +26,17 @@
             </div>
             <div class="col-4 mb-2">
               <label for="inputEmail4" class="form-label">Line</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputEmail4"
-                placeholder="Line"
+              <select
+                id="inputState"
+                class="form-select"
                 style="border-radius: 10px"
                 formControlName="line"
-                [(ngModel)]="line"
-              />
+                [(ngModel)]="lineId"
+              >
+                <option value="{{ item.id }}" *ngFor="let item of lineData">
+                  {{ item.name }}
+                </option>
+              </select>
             </div>
             <div class="col-4 mb-2">
               <label for="inputPassword4" class="form-label">PIC</label>
