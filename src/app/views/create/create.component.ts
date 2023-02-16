@@ -16,6 +16,8 @@ export class CreateComponent implements OnInit {
   data: any[] = [];
   section: any[] = [];
   form!: FormGroup;
+
+  line: any[] = [];
   ngOnInit(): void {
     this.ControlService.getAllCategories().subscribe((res: any) => {
       this.data = res;
@@ -23,12 +25,15 @@ export class CreateComponent implements OnInit {
     this.ControlService.getSection().subscribe((res: any) => {
       this.section = res;
     });
+    this.ControlService.getLine().subscribe((res: any) => {
+      this.line = res;
+    });
 
     this.form = new FormGroup({
       project: new FormControl('', [Validators.required]),
       sectionId: new FormControl('', [Validators.required]),
       categoryId: new FormControl('', [Validators.required]),
-      line: new FormControl('', [Validators.required]),
+      lineId: new FormControl('', [Validators.required]),
       pic: new FormControl('', [Validators.required]),
       status: new FormControl('', [Validators.required]),
     })
@@ -42,6 +47,7 @@ export class CreateComponent implements OnInit {
     })
     this.form.value.categoryId = Number(this.form.value.categoryId);
     this.form.value.sectionId = Number(this.form.value.sectionId);
+    this.form.value.lineId = Number(this.form.value.sectionId);
 
     this.ControlService.createDocument(this.form.value).subscribe((res: any) => {
       this.router.navigate([`/${this.params}`]);

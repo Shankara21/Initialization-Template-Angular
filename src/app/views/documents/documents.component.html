@@ -46,7 +46,9 @@
 
             </form>
           <div *ngIf="data.length">
+            <label for="search" class="form-label">Search</label>
              <input
+             id="search"
             type="text"
             class="form-control"
             [(ngModel)]="term"

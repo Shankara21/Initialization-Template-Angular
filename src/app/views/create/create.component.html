@@ -26,7 +26,9 @@
             </div>
             <div class="col-4 mb-2">
               <label for="inputEmail4" class="form-label">Line</label>
-              <input type="text" class="form-control" id="inputEmail4" placeholder="Line"  style="border-radius: 10px;" formControlName="line"/>
+              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="lineId">
+                <option value="{{ item.id }}" *ngFor="let item of line">{{ item.name }}</option>
+              </select>
             </div>
             <div class="col-4 mb-2">
               <label for="inputPassword4" class="form-label">PIC</label>
@@ -34,7 +36,7 @@
             </div>
             <div class="col-4 mb-2">
               <label for="inputPassword4" class="form-label">Category</label>
-              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="categoryId" multiple>
+              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="categoryId">
                 <option value="{{ item.id }}" *ngFor="let item of data">{{ item.code }} ({{ item.name }})</option>
               </select>
             </div>
