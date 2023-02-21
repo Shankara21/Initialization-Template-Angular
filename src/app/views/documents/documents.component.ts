@@ -12,7 +12,7 @@ export class DocumentsComponent implements OnInit {
 
   constructor(private router: Router, private ControlService: ControlService) { }
   term: any;
-  name: string = this.router.url.substring(1);
+  name: string = this.router.url.substring(10);
   title: any;
   temp: any[] = [];
   data: any[] = [];
@@ -28,6 +28,8 @@ export class DocumentsComponent implements OnInit {
 
   filterYear!: FormGroup;
   categoryId: number = 0;
+
+  document:any;
   ngOnInit(): void {
     // Categories
     this.ControlService.getCategories(this.name).subscribe((res: any) => {
@@ -39,11 +41,11 @@ export class DocumentsComponent implements OnInit {
         categoryId: new FormControl(this.categoryId, [Validators.required]),
       })
     });
-
     this.ControlService.getListDocuments(this.name).subscribe((res: any) => {
       this.data = res;
       this.totalProduct = this.data.length;
     });
+
     this.startYear = new Date().getFullYear() - 3;
     for (let i = this.startYear; i <= new Date().getFullYear() + 5; i++) {
       this.years.push(i);

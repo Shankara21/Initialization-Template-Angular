@@ -79,7 +79,7 @@ export class EditComponent implements OnInit {
     this.form.value.lineId = Number(this.form.value.line);
 
     this.ControlService.updateDocument(this.id, this.form.value).subscribe((res: any) => {
-      this.router.navigate([`/${this.params}`]);
+      this.router.navigate([`/document/${this.params}`]);
     })
   }
 

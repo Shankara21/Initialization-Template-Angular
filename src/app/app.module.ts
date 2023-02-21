@@ -27,6 +27,7 @@ import { CreateComponent as categoryCreate } from './views/category/create/creat
 import { IndexLineComponent } from './views/line/index-line/index-line.component';
 import { CreateLineComponent } from './views/line/create-line/create-line.component';
 import { EditLineComponent } from './views/line/edit-line/edit-line.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { EditLineComponent } from './views/line/edit-line/edit-line.component';
     categoryCreate,
     IndexLineComponent,
     CreateLineComponent,
-    EditLineComponent
+    EditLineComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

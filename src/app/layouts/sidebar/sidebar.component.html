@@ -20,7 +20,13 @@
         class="nav-content collapse"
         data-bs-parent="#sidebar-nav"
       >
-        <li>
+        <li *ngFor="let item of data;index as i">
+          <a [routerLinkActive]="'active'" routerLink="document/{{ route[i] }}">
+            <i class="bi bi-circle"></i>
+            <span style="font-size: 13px">{{ item.code }} ({{ item.name }})</span>
+          </a>
+        </li>
+        <!-- <li>
           <a [routerLinkActive]="'active'" routerLink="/dq">
             <i class="bi bi-circle"></i>
             <span style="font-size: 13px">DQ (Design Qualification)</span>
@@ -99,7 +105,7 @@
               >SOP (Standard Operational Procedure)</span
             >
           </a>
-        </li>
+        </li> -->
       </ul>
     </li>
     <li class="nav-item">
