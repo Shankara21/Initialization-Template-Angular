@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ControlService } from './../../Services/control.service';
 
@@ -8,7 +10,7 @@ import { ControlService } from './../../Services/control.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef, private ControlService: ControlService) { }
+  constructor(private elementRef: ElementRef, private ControlService: ControlService, private cookieService:CookieService,private router:Router) { }
 
   dq: any;
   iq: any;
@@ -25,8 +27,15 @@ export class DashboardComponent implements OnInit {
   fr: any;
 
   ngOnInit(): void {
+    const token = this.cookieService.get('refreshToken');
+    console.log(token);
+
+    if (!this.cookieService.get('refreshToken')) {
+      this.router.navigate(['/login']);
+    }
+
+
     this.ControlService.getAmountDocument().subscribe((res: any) => {
-      console.log(res.dq[0].amount)
       this.dq = res.dq[0].amount;
 
       this.iq = res.iq[0].amount;

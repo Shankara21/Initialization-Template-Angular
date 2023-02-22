@@ -1,7 +1,7 @@
 <aside id="sidebar" class="sidebar">
   <ul class="sidebar-nav" id="sidebar-nav">
     <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" routerLink="/">
+      <a class="nav-link" [routerLinkActive]="'active'" routerLink="/dashboard">
         <i class="bi bi-grid"></i> <span>Dashboard</span>
       </a>
     </li>
@@ -20,13 +20,13 @@
         class="nav-content collapse"
         data-bs-parent="#sidebar-nav"
       >
-        <li *ngFor="let item of data;index as i">
+        <!-- <li *ngFor="let item of data;index as i">
           <a [routerLinkActive]="'active'" routerLink="document/{{ route[i] }}">
             <i class="bi bi-circle"></i>
             <span style="font-size: 13px">{{ item.code }} ({{ item.name }})</span>
           </a>
-        </li>
-        <!-- <li>
+        </li> -->
+        <li>
           <a [routerLinkActive]="'active'" routerLink="/dq">
             <i class="bi bi-circle"></i>
             <span style="font-size: 13px">DQ (Design Qualification)</span>
@@ -105,7 +105,7 @@
               >SOP (Standard Operational Procedure)</span
             >
           </a>
-        </li> -->
+        </li>
       </ul>
     </li>
     <li class="nav-item">

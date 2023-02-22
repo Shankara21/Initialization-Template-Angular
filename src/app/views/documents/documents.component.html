@@ -1,6 +1,6 @@
 <main id="main" class="main">
   <div class="pagetitle">
-    <h1>List Document</h1>
+    <h1>List Document {{ name | uppercase }}</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
@@ -33,17 +33,16 @@
             <form [formGroup]="filterYear">
               <label for="filterYear" class="form-label">By Year</label>
                 <select
-                  formControlName="year"
                   id="filterYear"
                   (change)="filter()"
                   class="form-select"
                   style="border-radius: 13px;width: 100px;"
+                  formControlName="year"
                 >
                   <option value="{{ item }}" *ngFor="let item of years">
                     {{ item }}
                   </option>
                 </select>
-
             </form>
           <div *ngIf="data.length">
             <label for="search" class="form-label">Search</label>
@@ -73,6 +72,7 @@
                 <th scope="col">Format Code</th>
                 <th scope="col">PIC</th>
                 <th scope="col">Status</th>
+                <th scope="col">Year</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -106,6 +106,9 @@
                       }"
                       >{{ item.status }}</span
                     >
+                  </td>
+                  <td>
+                    {{ item.createdAt | date: 'yyyy' }}
                   </td>
                   <td>
                     <div class="dropdown">

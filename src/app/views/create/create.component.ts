@@ -50,7 +50,7 @@ export class CreateComponent implements OnInit {
     this.form.value.lineId = Number(this.form.value.sectionId);
 
     this.ControlService.createDocument(this.form.value).subscribe((res: any) => {
-      this.router.navigate([`/document/${this.params}`]);
+      this.router.navigate([`/${this.params}`]);
     })
   }
 

@@ -18,12 +18,21 @@ import { EditComponent } from './views/edit/edit.component';
 import { IndexsectionComponent } from './views/section/indexsection/indexsection.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  {
-    path: 'document', children: [
-      { path: ':route', component: DocumentsComponent },
-    ]
-  },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dq', component: DocumentsComponent },
+  { path: 'iq', component: DocumentsComponent },
+  { path: 'pq', component: DocumentsComponent },
+  { path: 'pv', component: DocumentsComponent },
+  { path: 'oq', component: DocumentsComponent },
+  { path: 'rv', component: DocumentsComponent },
+  { path: 'fat', component: DocumentsComponent },
+  { path: 'fr', component: DocumentsComponent },
+  { path: 'ms', component: DocumentsComponent },
+  { path: 'ps', component: DocumentsComponent },
+  { path: 'qs', component: DocumentsComponent },
+  { path: 'st', component: DocumentsComponent },
+  { path: 'sop', component: DocumentsComponent },
   { path: 'create', component: CreateComponent },
   { path: 'edit/:id', component: EditComponent },
   { path: 'login', component: LoginComponent },
