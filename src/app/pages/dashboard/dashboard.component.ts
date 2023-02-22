@@ -2,7 +2,8 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ControlService } from './../../Services/control.service';
-
+import jwt_decode from 'jwt-decode';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,7 +11,7 @@ import { ControlService } from './../../Services/control.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef, private ControlService: ControlService, private cookieService:CookieService,private router:Router) { }
+  constructor(private elementRef: ElementRef, private ControlService: ControlService, private cookieService: CookieService, private router: Router) { }
 
   dq: any;
   iq: any;
@@ -26,14 +27,40 @@ export class DashboardComponent implements OnInit {
   sop: any;
   fr: any;
 
+  // auth
+  decoded: any;
+  refreshToken: any;
+  id: any
   ngOnInit(): void {
-    const token = this.cookieService.get('refreshToken');
-    console.log(token);
+    const token = this.cookieService.get('autonumToken');
 
-    if (!this.cookieService.get('refreshToken')) {
+    if (!this.cookieService.get('autonumToken')) {
       this.router.navigate(['/login']);
     }
 
+    // this.refreshToken = new FormGroup({
+    //   refreshToken: new FormControl(token)
+    // })
+
+    // mengecek apakah ada yang login
+    // this.ControlService.refreshToken(this.refreshToken.value).subscribe((res: any) => {
+    //   this.decoded = jwt_decode(res.accessToken);
+    //   this.ControlService.username = this.decoded.username;
+    //   this.ControlService.email = this.decoded.email;
+    //   this.ControlService.fullname = this.decoded.fullname;
+    //   this.ControlService.userLevel = this.decoded.userLevel;
+    //   this.ControlService.id = this.decoded.id;
+    //   this.id = this.decoded.id;
+
+
+    //   this.ControlService.data = {
+    //     username: this.decoded.username,
+    //     email: this.decoded.email,
+    //     fullname: this.decoded.fullname,
+    //     userLevel: this.decoded.userLevel
+    //   }
+
+    // });
 
     this.ControlService.getAmountDocument().subscribe((res: any) => {
       this.dq = res.dq[0].amount;

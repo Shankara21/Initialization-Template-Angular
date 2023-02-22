@@ -19,6 +19,15 @@ export class ControlService {
   //?/ Http Methods ///
   ////////////////////
 
+  public id: any;
+  public username: any;
+  public fullname: any;
+  public email: any;
+  public userLevel: any;
+
+  public path: any;
+
+  public data: any;
   // Categories
   getAllCategories() {
     return this.HttpClient.get(this.port3000 + 'categories')
@@ -118,6 +127,42 @@ export class ControlService {
   }
   deleteLine(id: any) {
     return this.HttpClient.delete(this.port3000 + `lines/${id}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
+
+
+  // Auth
+  login(params: any) {
+    return this.HttpClient.post(this.port3000 + 'users/login', params)
+  }
+  register(params: any) {
+    return this.HttpClient.post(this.port3000 + 'users/register', params)
+  }
+  logout(params: any) {
+    return this.HttpClient.delete(this.port3000 + `users/logout/${params}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  refreshToken(params: any) {
+    return this.HttpClient.post(this.port3000 + `users/refreshToken`, params)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+
+  // User
+  getUser() {
+    return this.HttpClient.get(this.port3000 + 'users')
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  findUser(id: any) {
+    return this.HttpClient.get(this.port3000 + `users/${id}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  deleteUser(id: any) {
+    return this.HttpClient.delete(this.port3000 + `users/${id}`)
+      .pipe(catchError(this.errorHttpHandler))
+  }
+  updateUser(id: any, params: any) {
+    return this.HttpClient.put(this.port3000 + `users/${id}`, params)
       .pipe(catchError(this.errorHttpHandler))
   }
 

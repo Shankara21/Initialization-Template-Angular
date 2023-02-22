@@ -15,15 +15,22 @@ export class LoginComponent implements OnInit {
   form!: FormGroup
   errorMsg: any;
   ngOnInit(): void {
+    const token = this.cookieService.get('autonumToken');
+    // if (this.cookieService.get('autonumToken')) {
+    //   this.router.navigate(['/dashboard']);
+    // }
+    this.form = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
   }
   submit() {
-    // this.ControlService.login(this.form.value).subscribe((res: any) => {
-    //   this.cookieService.set('refreshToken', res.token);
-
-    //   this.router.navigate(['/dashboard']);
-    // }, (err: any) => {
-    //   this.errorMsg = err.error.message;
-    // });
+    this.ControlService.login(this.form.value).subscribe((res: any) => {
+      this.cookieService.set('autonumToken', res.token);
+      this.router.navigate(['/dashboard']);
+    }, (err: any) => {
+      this.errorMsg = err.error.message;
+    });
   }
 
 }

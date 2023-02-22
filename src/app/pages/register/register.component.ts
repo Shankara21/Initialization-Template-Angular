@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { ControlService } from 'src/app/Services/control.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,10 +11,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private ControlService: ControlService, private route: Router) { }
+  constructor(private ControlService: ControlService, private router: Router, private cookieService:CookieService) { }
   errorMsg: any;
   form!: FormGroup
   ngOnInit(): void {
+    const token = this.cookieService.get('autonumToken');
+    if (this.cookieService.get('autonumToken')) {
+      this.router.navigate(['/dashboard']);
+    }
 
     this.form = new FormGroup({
       username: new FormControl('', [Validators.required]),
