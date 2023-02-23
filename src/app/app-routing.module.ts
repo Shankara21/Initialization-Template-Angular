@@ -1,3 +1,5 @@
+import { UpdateUserComponent } from './views/users/update-user/update-user.component';
+import { IndexUserComponent } from './views/users/index-user/index-user.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { EditLineComponent } from './views/line/edit-line/edit-line.component';
 import { CreateLineComponent } from './views/line/create-line/create-line.component';
@@ -18,7 +20,7 @@ import { EditComponent } from './views/edit/edit.component';
 import { IndexsectionComponent } from './views/section/indexsection/indexsection.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dq', component: DocumentsComponent },
   { path: 'iq', component: DocumentsComponent },
@@ -46,6 +48,8 @@ const routes: Routes = [
   { path: 'line', component: IndexLineComponent },
   { path: 'line/create', component: CreateLineComponent },
   { path: 'line/edit/:id', component: EditLineComponent },
+  { path: 'users', component: IndexUserComponent },
+  { path: 'users/:id', component: UpdateUserComponent }
 
 ];
 

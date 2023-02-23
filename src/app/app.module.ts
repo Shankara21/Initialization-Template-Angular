@@ -28,6 +28,8 @@ import { IndexLineComponent } from './views/line/index-line/index-line.component
 import { CreateLineComponent } from './views/line/create-line/create-line.component';
 import { EditLineComponent } from './views/line/edit-line/edit-line.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { IndexUserComponent } from './views/users/index-user/index-user.component';
+import { UpdateUserComponent } from './views/users/update-user/update-user.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { RegisterComponent } from './pages/register/register.component';
     IndexLineComponent,
     CreateLineComponent,
     EditLineComponent,
-    RegisterComponent
+    RegisterComponent,
+    IndexUserComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

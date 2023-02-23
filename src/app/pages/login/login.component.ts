@@ -16,9 +16,9 @@ export class LoginComponent implements OnInit {
   errorMsg: any;
   ngOnInit(): void {
     const token = this.cookieService.get('autonumToken');
-    // if (this.cookieService.get('autonumToken')) {
-    //   this.router.navigate(['/dashboard']);
-    // }
+    if (this.cookieService.get('autonumToken')) {
+      this.router.navigate(['/dashboard']);
+    }
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])

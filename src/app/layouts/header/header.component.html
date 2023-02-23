@@ -28,12 +28,14 @@
             alt="Profile"
             class="rounded-circle"
           />
-          <span class="d-none d-md-block dropdown-toggle ps-2">Jassa</span>
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{
+            ControlService.data.username
+          }}</span>
         </a>
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile overflow-hidden" style="border-radius: 15px;">
           <li class="dropdown-header">
-            <h6>Jassa</h6>
-            <span>Web Designer</span>
+            <h6>{{ ControlService.data.fullname }}</h6>
+            <span>{{ ControlService.data.userLevel }}</span>
           </li>
           <li>
             <hr class="dropdown-divider" />
@@ -41,38 +43,9 @@
           <li>
             <a
               class="dropdown-item d-flex align-items-center"
-              routerLink="/user-profile"
+              (click)="logout()"
+              style="cursor: pointer;"
             >
-              <i class="bi bi-person"></i> <span>My Profile</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li>
-            <a
-              class="dropdown-item d-flex align-items-center"
-              routerLink="/user-profile"
-            >
-              <i class="bi bi-gear"></i> <span>Account Settings</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li>
-            <a
-              class="dropdown-item d-flex align-items-center"
-              routerLink="/pages-faq"
-            >
-              <i class="bi bi-question-circle"></i> <span>Need Help?</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center" routerLink="/">
               <i class="bi bi-box-arrow-right"></i> <span>Sign Out</span>
             </a>
           </li>

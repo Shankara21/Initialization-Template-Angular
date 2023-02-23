@@ -29,11 +29,11 @@ export class RegisterComponent implements OnInit {
     });
   }
   submit() {
-    // this.ControlService.register(this.form.value).subscribe((res: any) => {
-    //   this.route.navigate(['/login']);
-    // }, (err: any) => {
-    //   this.errorMsg = err.error.message;
-    // });
+    this.ControlService.register(this.form.value).subscribe((res: any) => {
+      this.router.navigate(['/login']);
+    }, (err: any) => {
+      this.errorMsg = err.error.message;
+    });
   }
 
 }

@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class DocumentsComponent implements OnInit {
 
-  constructor(private router: Router, private ControlService: ControlService, private CookieService:CookieService) { }
+  constructor(private router: Router, private ControlService: ControlService, private CookieService: CookieService) { }
   term: any;
   name: any;
   title: any;
@@ -30,7 +30,7 @@ export class DocumentsComponent implements OnInit {
   filterYear!: FormGroup;
   categoryId: number = 0;
 
-  document:any;
+  document: any;
   ngOnInit(): void {
     const token = this.CookieService.get('refreshToken');
 
