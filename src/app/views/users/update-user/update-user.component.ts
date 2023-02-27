@@ -62,17 +62,12 @@ export class UpdateUserComponent implements OnInit {
         this.router.navigate(['/forbidden']);
       }
     });
-
-
-
     this.ControlService.findUser(this.params).subscribe((res: any) => {
-
       this.username = res.username;
       this.email = res.email;
       this.fullname = res.fullname;
       this.userLevel = res.userLevel;
     })
-
   }
 
   submit() {

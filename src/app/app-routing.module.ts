@@ -35,6 +35,8 @@ const routes: Routes = [
   { path: 'qs', component: DocumentsComponent },
   { path: 'st', component: DocumentsComponent },
   { path: 'sop', component: DocumentsComponent },
+  { path: 'dpi', component: DocumentsComponent },
+  { path: 'others', component: DocumentsComponent },
   { path: 'create', component: CreateComponent },
   { path: 'edit/:id', component: EditComponent },
   { path: 'login', component: LoginComponent },
