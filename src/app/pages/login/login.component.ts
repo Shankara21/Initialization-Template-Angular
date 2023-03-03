@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
   }
   submit() {
     this.ControlService.login(this.form.value).subscribe((res: any) => {
-      // expired dalam 12 jam
-      this.cookieService.set('autonumToken', res.token, { expires: 0.5, sameSite: 'Lax' });
+      this.cookieService.set('autonumToken', res.token, 4 / 24);
       this.router.navigate(['/dashboard']);
     }, (err: any) => {
       this.errorMsg = err.error.message;
