@@ -11,9 +11,9 @@
   </div>
   <section class="section dashboard">
     <div class="row">
-      <div class="card">
+      <div class="card overflow-auto" style="border-radius: 10px">
         <div class="card-body">
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between mt-3">
             <h5 class="card-title">{{ title }}</h5>
             <div>
               <a
@@ -30,7 +30,7 @@
               ></a>
             </div>
           </div>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between mt-3">
             <form [formGroup]="filterYear">
               <label for="filterYear" class="form-label">By Year</label>
               <select
@@ -58,94 +58,90 @@
             </div>
           </div>
 
-          <div class="overflow-auto">
-            <table class="table table-hover text-center">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Project</th>
-                  <th scope="col">Line</th>
-                  <th scope="col">Format Code</th>
-                  <th scope="col">PIC</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Year</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngIf="!data.length; else tes">
-                  <td colspan="8" class="text-center">Belum ada data.</td>
-                </tr>
-                <ng-template #tes>
-                  <tr
-                    *ngFor="
-                      let item of data
-                        | filter : term
-                        | paginate
-                          : { itemsPerPage: itemsPerPage, currentPage: p };
-                      index as i
-                    "
-                  >
-                    <th scope="row">{{ i + 1 }}</th>
-                    <td>{{ item.project }}</td>
-                    <td>{{ item.Line.name }}</td>
-                    <td>
-                      <strong>{{ item.format_code }}</strong>
-                    </td>
-                    <td>{{ item.pic }}</td>
-                    <td>
-                      <span
-                        class="badge rounded-pill"
-                        [ngClass]="{
-                          'bg-success': item.status == 'Done',
-                          'bg-secondary': item.status == 'On Progress'
-                        }"
-                        >{{ item.status }}</span
-                      >
-                    </td>
-                    <td>
-                      {{ item.createdAt | date : "yyyy" }}
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <i
-                          class="bi bi-three-dots-vertical"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        ></i>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a
+          <table class="table table-hover text-center">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Project</th>
+                <th scope="col">Line</th>
+                <th scope="col">Format Code</th>
+                <th scope="col">PIC</th>
+                <th scope="col">Status</th>
+                <th scope="col">Year</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="!data.length; else tes">
+                <td colspan="8" class="text-center">Belum ada data.</td>
+              </tr>
+              <ng-template #tes>
+                <tr
+                  *ngFor="
+                    let item of data
+                      | filter : term
+                      | paginate
+                        : { itemsPerPage: itemsPerPage, currentPage: p };
+                    index as i
+                  "
+                >
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ item.project }}</td>
+                  <td>{{ item.Line.name }}</td>
+                  <td>
+                    <strong>{{ item.format_code }}</strong>
+                  </td>
+                  <td>{{ item.pic }}</td>
+                  <td>
+                    <span
+                      class="badge rounded-pill"
+                      [ngClass]="{
+                        'bg-success': item.status == 'Done',
+                        'bg-secondary': item.status == 'On Progress'
+                      }"
+                      >{{ item.status }}</span
+                    >
+                  </td>
+                  <td>
+                    {{ item.createdAt | date : "yyyy" }}
+                  </td>
+                  <td>
+                    <div class="dropdown">
+                      <i
+                        class="bi bi-three-dots-vertical"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      ></i>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            routerLink="/edit/{{ item.id }}"
+                            ><i class="bi bi-pencil"></i> Edit</a
+                          >
+                        </li>
+                        <li>
+                          <form action="">
+                            <button
                               class="dropdown-item"
-                              routerLink="/edit/{{ item.id }}"
-                              ><i class="bi bi-pencil"></i> Edit</a
+                              type="submit"
+                              (click)="delete(item.id)"
                             >
-                          </li>
-                          <li>
-                            <form action="">
-                              <button
-                                class="dropdown-item"
-                                type="submit"
-                                (click)="delete(item.id)"
-                              >
-                                <i class="bi bi-trash"></i>
-                                Delete
-                              </button>
-                            </form>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                </ng-template>
-              </tbody>
-            </table>
-          </div>
-          <div *ngIf="data.length" class="d-flex justify-content-center mt-3">
-            <pagination-controls
-              (pageChange)="p = $event"
-            ></pagination-controls>
-          </div>
+                              <i class="bi bi-trash"></i>
+                              Delete
+                            </button>
+                          </form>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="data.length" class="d-flex justify-content-center mt-3">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>
     </div>
