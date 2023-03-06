@@ -55,6 +55,9 @@ export class DocumentsComponent implements OnInit {
     this.ControlService.getListDocuments(this.name).subscribe((res: any) => {
       this.data = res;
       this.totalProduct = this.data.length;
+      this.data.map((item: any) => {
+        item.index = this.data.indexOf(item) + 1;
+      })
     });
 
     this.startYear = new Date().getFullYear() - 3;
