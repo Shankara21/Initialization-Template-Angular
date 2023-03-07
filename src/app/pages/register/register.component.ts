@@ -29,6 +29,13 @@ export class RegisterComponent implements OnInit {
     });
   }
   submit() {
+    if (this.form.invalid) {
+      this.errorMsg = 'Please fill all the fields correctly';
+      setTimeout(() => {
+        this.errorMsg = null;
+      }, 2000);
+      return;
+    }
     this.ControlService.register(this.form.value).subscribe((res: any) => {
       this.router.navigate(['/login']);
     }, (err: any) => {
