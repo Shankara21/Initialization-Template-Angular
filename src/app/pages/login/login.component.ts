@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     }
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     });
   }
   submit() {
@@ -39,5 +39,4 @@ export class LoginComponent implements OnInit {
       this.errorMsg = err.error.message;
     });
   }
-
 }

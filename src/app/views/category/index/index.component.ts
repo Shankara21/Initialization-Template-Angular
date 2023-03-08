@@ -22,8 +22,6 @@ export class IndexComponent implements OnInit {
       this.data.map((item: any) => {
         item.index = this.data.indexOf(item) + 1;
       })
-      console.log(this.data);
-
     })
   }
   delete(id: any) {

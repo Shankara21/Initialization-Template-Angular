@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class ControlService {
   // Base url
   private port3000 = 'http://localhost:3000/';
-  private port3124 = 'http://192.168.9.47:3124/';
+  private port3124 = 'http://192.168.9.47:3000/';
 
   constructor(private HttpClient: HttpClient) { }
   httpOptions = {
