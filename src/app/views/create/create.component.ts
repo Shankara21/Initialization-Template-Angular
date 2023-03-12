@@ -35,7 +35,6 @@ export class CreateComponent implements OnInit {
       categoryId: new FormControl('', [Validators.required]),
       lineId: new FormControl('', [Validators.required]),
       pic: new FormControl('', [Validators.required]),
-      status: new FormControl('', [Validators.required]),
     })
   }
   params: any;

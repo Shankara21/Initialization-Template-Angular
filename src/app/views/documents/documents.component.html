@@ -66,7 +66,6 @@
                 <th scope="col">Line</th>
                 <th scope="col">Format Code</th>
                 <th scope="col">PIC</th>
-                <th scope="col">Status</th>
                 <th scope="col">Year</th>
                 <th scope="col">Action</th>
               </tr>
@@ -92,16 +91,7 @@
                     <strong>{{ item.format_code }}</strong>
                   </td>
                   <td>{{ item.pic }}</td>
-                  <td>
-                    <span
-                      class="badge rounded-pill"
-                      [ngClass]="{
-                        'bg-success': item.status == 'Done',
-                        'bg-secondary': item.status == 'On Progress'
-                      }"
-                      >{{ item.status }}</span
-                    >
-                  </td>
+
                   <td>
                     {{ item.createdAt | date : "yyyy" }}
                   </td>

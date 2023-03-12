@@ -16,41 +16,62 @@
             <div class="col-12 mb-2">
               <label for="inputNanme4" class="form-label">Project</label>
               <textarea
-              formControlName="project"
+                formControlName="project"
                 class="form-control"
                 placeholder="Project Name"
                 id="floatingTextarea"
-                style="height: 75px;border-radius: 10px;"
-
+                style="height: 75px; border-radius: 10px"
               ></textarea>
             </div>
-            <div class="col-4 mb-2">
+            <div class="col-6 mb-2">
               <label for="inputEmail4" class="form-label">Line</label>
-              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="lineId">
-                <option value="{{ item.id }}" *ngFor="let item of line">{{ item.name }}</option>
+              <select
+                id="inputState"
+                class="form-select"
+                style="border-radius: 10px"
+                formControlName="lineId"
+              >
+                <option value="{{ item.id }}" *ngFor="let item of line">
+                  {{ item.name }}
+                </option>
               </select>
             </div>
-            <div class="col-4 mb-2">
+            <div class="col-6 mb-2">
               <label for="inputPassword4" class="form-label">PIC</label>
-              <input type="text" class="form-control" id="inputPassword4" placeholder="PIC" style="border-radius: 10px;" formControlName="pic" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputPassword4"
+                placeholder="PIC"
+                style="border-radius: 10px"
+                formControlName="pic"
+              />
             </div>
-            <div class="col-4 mb-2">
-              <label for="inputPassword4" class="form-label">Category</label>
-              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="categoryId">
-                <option value="{{ item.id }}" *ngFor="let item of data">{{ item.code }} ({{ item.name }})</option>
-              </select>
-            </div>
+
             <div class="col-6 mb-2">
               <label for="inputPassword4" class="form-label">Section</label>
-              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="sectionId">
-                <option value="{{ item.id }}" *ngFor="let item of section">{{ item.code }} ({{ item.name }})</option>
+              <select
+                id="inputState"
+                class="form-select"
+                style="border-radius: 10px"
+                formControlName="sectionId"
+              >
+                <option value="{{ item.id }}" *ngFor="let item of section">
+                  {{ item.code }} ({{ item.name }})
+                </option>
               </select>
             </div>
-            <div class="col-6 mb-2">
-              <label for="inputPassword4" class="form-label">Status</label>
-              <select id="inputState" class="form-select" style="border-radius: 10px;" formControlName="status">
-                <option value="Done">Done</option>
-                <option value="On Progress">On Progress</option>
+             <div class="col-6 mb-2">
+              <label for="inputPassword4" class="form-label">Category</label>
+              <select
+                id="inputState"
+                class="form-select"
+                style="border-radius: 10px"
+                formControlName="categoryId"
+              >
+                <option value="{{ item.id }}" *ngFor="let item of data">
+                  {{ item.code }} ({{ item.name }})
+                </option>
               </select>
             </div>
 
