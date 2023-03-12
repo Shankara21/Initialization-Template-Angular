@@ -52,8 +52,6 @@ export class DashboardComponent implements OnInit {
 
     this.ControlService.getAmountDocument().subscribe((res: any) => {
       this.count = res;
-      console.log(this.count);
-
     })
   }
 

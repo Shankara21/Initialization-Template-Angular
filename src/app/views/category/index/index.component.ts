@@ -18,6 +18,10 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.ControlService.getAllCategories().subscribe((res: any) => {
       this.data = res;
+      // menambah index pada data
+      this.data.map((item: any) => {
+        item.index = this.data.indexOf(item) + 1;
+      })
     })
   }
   delete(id: any) {

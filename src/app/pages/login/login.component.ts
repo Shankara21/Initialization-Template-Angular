@@ -20,11 +20,18 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     }
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     });
   }
   submit() {
+    if (this.form.invalid) {
+      this.errorMsg = 'Please enter valid email and password';
+      setTimeout(() => {
+        this.errorMsg = null;
+      }, 2000);
+      return;
+    }
     this.ControlService.login(this.form.value).subscribe((res: any) => {
       this.cookieService.set('autonumToken', res.token, 4 / 24);
       this.router.navigate(['/dashboard']);
@@ -32,5 +39,4 @@ export class LoginComponent implements OnInit {
       this.errorMsg = err.error.message;
     });
   }
-
 }
